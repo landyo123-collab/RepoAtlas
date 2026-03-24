@@ -1,0 +1,53 @@
+name: RepoAtlas
+
+options:
+  bundleIdPrefix: com.repoatlas
+  createIntermediateGroups: true
+
+settings:
+  base:
+    MACOSX_DEPLOYMENT_TARGET: "13.0"
+    SWIFT_VERSION: "5.9"
+    PRODUCT_NAME: "RepoAtlas"
+
+targets:
+  RepoAtlas:
+    type: application
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: Sources/RepoAtlasApp
+        excludes:
+          - "**/._*"
+          - "**/.DS_Store"
+    resources:
+      - path: Sources/RepoAtlasApp/Resources/DeepSeekConfig.plist.template
+      - path: Sources/RepoAtlasApp/Assets.xcassets
+    settings:
+      base:
+        INFOPLIST_FILE: SupportingFiles/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.repoatlas.RepoAtlas
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+
+  EvalRunner:
+    type: tool
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: Sources/EvalRunner
+        excludes:
+          - "**/._*"
+      - path: Sources/RepoAtlasApp/Services
+        excludes:
+          - "**/._*"
+      - path: Sources/RepoAtlasApp/Models
+        excludes:
+          - "**/._*"
+      - path: Sources/RepoAtlasApp/Utilities
+        excludes:
+          - "**/._*"
+    settings:
+      base:
+        PRODUCT_NAME: EvalRunner
+        PRODUCT_BUNDLE_IDENTIFIER: com.repoatlas.EvalRunner

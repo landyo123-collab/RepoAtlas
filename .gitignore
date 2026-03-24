@@ -1,0 +1,11 @@
+.DS_Store
+._*
+.build/
+build/
+DerivedData/
+.swiftpm/
+Packages/
+xcuserdata/
+*.xcuserstate
+.env
+.repoatlas.env

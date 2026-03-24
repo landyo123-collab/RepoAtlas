@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build (macOS)
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: |
+          xcodebuild \
+            -project RepoAtlas.xcodeproj \
+            -scheme RepoAtlas \
+            -configuration Debug \
+            -destination "platform=macOS" \
+            build \
+            CODE_SIGNING_ALLOWED=NO
