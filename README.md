@@ -128,12 +128,6 @@ SwiftUI, AppKit, and SQLite3 (bundled with macOS).
 
 ---
 
-## Screenshots
-
-*Coming soon.*
-
----
-
 ## License
 
 MIT — see [LICENSE](LICENSE).
